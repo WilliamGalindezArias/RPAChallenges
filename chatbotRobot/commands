@@ -1,0 +1,29 @@
+http://localhost:5005/model/parse
+curl localhost:5005/model/parse -d '{"text":"hello"}'
+POST
+body
+{"text":"hello"}
+
+
+http://localhost:5005/webhooks/rest/webhook
+
+{
+  "sender": "Rasa",
+  "message": "triger rpa bot"
+}
+
+
+run bot
+rasa run -models --enable-api --log-file out.log --endpoints endpoints.yml
+
+POST FROM OUTSIDE
+
+post("http://localhost:5005/webhooks/rest/webhook",json={"sender":"1","message":"hello"}).json()
+
+debug
+rasa run --enable-api --debug
+
+rasa run -models --enable-api  --endpoints endpoints.yml --credentials credentials.yml --debug
+
+And this one for chatrrom
+rasa run -models --enable-api --cors "*"  --endpoints endpoints.yml --credentials credentials.yml  --debug

@@ -1,0 +1,43 @@
+intents:
+  - greeting
+  - bye
+  - triggerRPA
+
+entities:
+- message
+
+slots:
+  message:
+    type: text
+    initial_value: "hi there, Chatbot - Robot Integrated"
+
+actions:
+- utter_greet
+- utter_did_that_help
+- utter_triggerrpa
+- utter_goodbye
+- action_robot_message
+
+templates:
+  utter_greet:
+  - text: "Hey!"
+  - text: "Salut"
+  - text: "Hi there"
+  - text: "Hi back"
+  - text: "Hello Human"
+  - text: "Hello, how can I help"
+
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_triggerrpa:
+  - text: "alright, invoking the robot"
+  - text: "calling uipath"
+  - text: "Pinging my bot friend"
+
+  utter_goodbye:
+  - text: "Bye"
+  - text: "see you "
+  - text: "Until next time"
+  - text: "Au revoir"
